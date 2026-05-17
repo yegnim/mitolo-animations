@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  html, body { width: 100%; height: 100%; background: white; overflow: hidden; }
+  html, body { width: 100%; height: 100%; background: #E6E6E6; overflow: hidden; }
   canvas { display: block; position: absolute; top: 0; left: 0; }
 </style>
 </head>
@@ -33,11 +33,10 @@
     const W = canvas.width;
     const H = canvas.height;
 
-    ctx.clearRect(0, 0, W, H);
-    ctx.fillStyle = 'white';
+    // Fill with page background colour
+    ctx.fillStyle = '#E6E6E6';
     ctx.fillRect(0, 0, W, H);
 
-    // Logo dimensions - fit inside canvas with padding
     const pad = W * 0.05;
     const logoW = W - pad * 2;
     const logoH = logoW * (457 / 800);
@@ -59,13 +58,13 @@
       fadeT = Math.min(fadeT + 0.016, 1);
     }
 
-    // White wave sweep - using gradient
+    // Wave sweep using page background colour
     const waveWidth = logoW * 0.22;
     const grad = ctx.createLinearGradient(waveX - waveWidth, 0, waveX + waveWidth, 0);
-    grad.addColorStop(0, 'rgba(255,255,255,0)');
-    grad.addColorStop(0.4, 'rgba(255,255,255,1)');
-    grad.addColorStop(0.6, 'rgba(255,255,255,1)');
-    grad.addColorStop(1, 'rgba(255,255,255,0)');
+    grad.addColorStop(0, 'rgba(230,230,230,0)');
+    grad.addColorStop(0.4, 'rgba(230,230,230,1)');
+    grad.addColorStop(0.6, 'rgba(230,230,230,1)');
+    grad.addColorStop(1, 'rgba(230,230,230,0)');
     ctx.fillStyle = grad;
     ctx.fillRect(0, 0, W, H);
 
